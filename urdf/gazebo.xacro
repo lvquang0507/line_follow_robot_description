@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="line_follow_robot_description">
+
+    <gazebo reference="chassis">
+        <material>
+            Gazebo/Orange
+        </material>
+    </gazebo>
+
+</robot>

@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/lvquang/Desktop/ros2_ws/install/unity_robotics_demo_msgs/include/**",
+        "/home/lvquang/Desktop/ros2_ws/install/gantry_type_welding_robot_interfaces/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/lvquang/Desktop/ros2_ws/src/gantry_type_welding_robot/include/**",
+        "/home/lvquang/Desktop/ros2_ws/src/gantry_type_welding_robot_description/include/**",
+        "/home/lvquang/Desktop/ros2_ws/src/line_follow_robot_description/include/**",
+        "/home/lvquang/Desktop/ros2_ws/src/ur3e_test/include/**",
+        "/home/lvquang/Desktop/ros2_ws/src/welding_robot/include/**",
+        "/home/lvquang/Desktop/ros2_ws/src/welding_robot_description/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
