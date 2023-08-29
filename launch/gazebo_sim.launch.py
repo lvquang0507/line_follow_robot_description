@@ -84,6 +84,7 @@ def generate_launch_description():
             "joint_state_broadcaster",
         ],
         output="screen",
+        params={"use_sim_time": use_sim_time},
     )
 
     delay_JSB_after_gazebo = RegisterEventHandler(

@@ -35,13 +35,13 @@ def generate_launch_description():
         "use_sim_time": use_sim_time,
     }
 
-    # rviz_config_file = PathJoinSubstitution(
-    #     [
-    #         FindPackageShare(description_package),
-    #         "rviz",
-    #         "gantry_type_welding_robot.rviz",
-    #     ]
-    # )
+    rviz_config_file = PathJoinSubstitution(
+        [
+            FindPackageShare(pkg_name),
+            "config",
+            "view_robot.rviz",
+        ]
+    )
 
     joint_state_publisher_node = Node(
         package="joint_state_publisher_gui",
@@ -58,7 +58,7 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
-        # arguments=["-d", rviz_config_file],
+        arguments=["-d", rviz_config_file],
     )
 
     return LaunchDescription(

@@ -5,9 +5,8 @@
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
 
-
         <joint name="wheel1_joint">
-            <command_interface>
+            <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
             </command_interface>
@@ -16,7 +15,7 @@
         </joint>
 
         <joint name="wheel2_joint">
-            <command_interface>
+            <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
             </command_interface>
@@ -25,7 +24,7 @@
         </joint>
 
         <joint name="wheel3_joint">
-            <command_interface>
+            <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
             </command_interface>
@@ -34,9 +33,18 @@
         </joint>
 
         <joint name="wheel4_joint">
-            <command_interface>
+            <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+        </joint>
+
+        <joint name="camera_joint">
+            <command_interface name="position">
+                <param name="min">${camera_joint_lower_limit}</param>
+                <param name="max">${camera_joint_upper_limit}</param>
             </command_interface>
             <state_interface name="position" />
             <state_interface name="velocity" />
