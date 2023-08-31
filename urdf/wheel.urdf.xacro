@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_wheel">
+
+
+    <xacro:macro name="robot_wheel"
+        params="wheel_prefix">
+        <xacro:property name="wheel_radius" value="0.05" />
+        <xacro:property name="wheel_length"
+            value="0.03" />
+
+        <!-- Front: 1; Rear: -1; Right: 1; Left: -1 -->
+        <xacro:if value="${wheel_prefix == 'left_front'}">
+            <xacro:property name="wheel_side" value="-1" />
+            <xacro:property name="wheel_index" value="1" />
+            <xacro:property name="wheel_dir" value="1" />
+            <xacro:property name="wheel_rot" value="-${pi/2}" />
+        </xacro:if>
+        <xacro:if value="${wheel_prefix == 'left_rear'}">
+            <xacro:property name="wheel_side" value="-1" />
+            <xacro:property name="wheel_index" value="-1" />
+            <xacro:property name="wheel_dir" value="1" />
+            <xacro:property name="wheel_rot" value="-${pi/2}" />
+        </xacro:if>
+
+        <xacro:if value="${wheel_prefix == 'right_front'}">
+            <xacro:property name="wheel_side" value="1" />
+            <xacro:property name="wheel_index" value="1" />
+            <xacro:property name="wheel_dir" value="-1" />
+            <xacro:property name="wheel_rot" value="${pi/2}" />
+        </xacro:if>
+
+        <xacro:if value="${wheel_prefix == 'right_rear'}">
+            <xacro:property name="wheel_side" value="1" />
+            <xacro:property name="wheel_index" value="-1" />
+            <xacro:property name="wheel_dir" value="-1" />
+            <xacro:property name="wheel_rot" value="${pi/2}" />
+        </xacro:if>
+
+        <link name="${wheel_prefix}_wheel">
+            <inertial>
+                <origin
+                    xyz="0 0 -0.0029"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.087" />
+                <inertia
+                    ixx="9.26303416093673E-05"
+                    ixy="0"
+                    ixz="0"
+                    iyy="9.26303732404586E-05"
+                    iyz="0"
+                    izz="0.000154536082435604" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://line_follow_robot_description/meshes/wheel_1.STL" />
+                </geometry>
+                <material
+                    name="black">
+                    <color
+                        rgba="0.15 0.15 0.15 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint
+            name="${wheel_prefix}_wheel_joint"
+            type="continuous">
+            <origin
+                xyz="${wheel_index * 0.082527} ${wheel_side * -0.13327} -0.028957"
+                rpy="${wheel_rot} 0 0" />
+            <parent
+                link="chassis" />
+            <child
+                link="${wheel_prefix}_wheel" />
+            <axis
+                xyz="0 0 ${wheel_dir}" />
+        </joint>
+
+        <gazebo reference="${wheel_prefix}_wheel">
+            <material>
+                Gazebo/FlatBlack
+            </material>
+            <mu1>1</mu1>
+            <mu2>0.5</mu2>
+        </gazebo>
+    </xacro:macro>
+</robot>

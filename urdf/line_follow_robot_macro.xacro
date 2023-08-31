@@ -3,18 +3,16 @@
 Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-    name="line_follow_robot_description">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="line_follow_robot_description">
+    <!-- 0.082 -->
 
     <link name="base_link">
-        <origin xyz="0.0 0.0 -0.078" rpy="0.0 0.0 0.0" />
     </link>
 
     <joint name="base_link_to_chassis" type="fixed">
-        <origin xyz="0.0 0.0 0.078" rpy="0.0 0.0 0.0" />
+        <origin xyz="0.0 0.0 0.082" rpy="0.0 0.0 0.0" />
         <parent link="base_link" />
         <child link="chassis" />
-
     </joint>
 
     <link
@@ -24,7 +22,7 @@ Stephen Brawner (brawner@gmail.com)
                 xyz="-0.0189338714262096 0.00069316353741691 0.00627681186620915"
                 rpy="0 0 0" />
             <mass
-                value="1.1317640076787" />
+                value="0.96" />
             <inertia
                 ixx="0.0021060110693492"
                 ixy="1.76769326367521E-06"
@@ -57,218 +55,12 @@ Stephen Brawner (brawner@gmail.com)
             </geometry>
         </collision>
     </link>
-    <link
-        name="wheel_1">
-        <inertial>
-            <origin
-                xyz="6.36743352488978E-10 -4.2886813231155E-05 -0.00287056812913383"
-                rpy="0 0 0" />
-            <mass
-                value="0.0866431913245874" />
-            <inertia
-                ixx="9.26303416093673E-05"
-                ixy="6.32821194433031E-12"
-                ixz="1.22253283282416E-11"
-                iyy="9.26303732404586E-05"
-                iyz="-3.91508245120923E-11"
-                izz="0.000154536082435604" />
-        </inertial>
-        <visual>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_1.STL" />
-            </geometry>
-            <material
-                name="">
-                <color
-                    rgba="0.152941176470588 0.152941176470588 0.152941176470588 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_1.STL" />
-            </geometry>
-        </collision>
-    </link>
-    <joint
-        name="wheel1_joint"
-        type="continuous">
-        <origin
-            xyz="0.082527 -0.13327 -0.028957"
-            rpy="1.5708 0 0" />
-        <parent
-            link="chassis" />
-        <child
-            link="wheel_1" />
-        <axis
-            xyz="0 0 1" />
-    </joint>
-    <link
-        name="wheel_2">
-        <inertial>
-            <origin
-                xyz="6.3674390760049E-10 -4.28868132313735E-05 -0.00287056812913339"
-                rpy="0 0 0" />
-            <mass
-                value="0.0866431913245884" />
-            <inertia
-                ixx="9.26303416093682E-05"
-                ixy="6.32821231736799E-12"
-                ixz="1.22253276976916E-11"
-                iyy="9.2630373240459E-05"
-                iyz="-3.91508246667142E-11"
-                izz="0.000154536082435605" />
-        </inertial>
-        <visual>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_2.STL" />
-            </geometry>
-            <material
-                name="">
-                <color
-                    rgba="0.152941176470588 0.152941176470588 0.152941176470588 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_2.STL" />
-            </geometry>
-        </collision>
-    </link>
-    <joint
-        name="wheel2_joint"
-        type="continuous">
-        <origin
-            xyz="-0.082473 -0.13327 -0.028957"
-            rpy="1.5708 0 0" />
-        <parent
-            link="chassis" />
-        <child
-            link="wheel_2" />
-        <axis
-            xyz="0 0 1" />
-    </joint>
-    <link
-        name="wheel_3">
-        <inertial>
-            <origin
-                xyz="-1.46504072762177E-09 4.28872315683844E-05 -0.00287056812913376"
-                rpy="0 0 0" />
-            <mass
-                value="0.0866431913245784" />
-            <inertia
-                ixx="9.26303507287425E-05"
-                ixy="1.56633064061896E-11"
-                ixz="3.70380585789923E-12"
-                iyy="9.2630364121068E-05"
-                iyz="4.08476142636141E-11"
-                izz="0.000154536082435589" />
-        </inertial>
-        <visual>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_3.STL" />
-            </geometry>
-            <material
-                name="">
-                <color
-                    rgba="0.152941176470588 0.152941176470588 0.152941176470588 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_3.STL" />
-            </geometry>
-        </collision>
-    </link>
-    <joint
-        name="wheel3_joint"
-        type="continuous">
-        <origin
-            xyz="0.082527 0.13333 -0.028957"
-            rpy="-1.5708 0 0" />
-        <parent
-            link="chassis" />
-        <child
-            link="wheel_3" />
-        <axis
-            xyz="0 0 1" />
-    </joint>
-    <link
-        name="wheel_4">
-        <inertial>
-            <origin
-                xyz="-1.46504071374398E-09 4.2887231569165E-05 -0.0028705681291336"
-                rpy="0 0 0" />
-            <mass
-                value="0.0866431913245794" />
-            <inertia
-                ixx="9.26303507287434E-05"
-                ixy="1.56633056887941E-11"
-                ixz="3.70380641228392E-12"
-                iyy="9.26303641210686E-05"
-                iyz="4.08476143035623E-11"
-                izz="0.00015453608243559" />
-        </inertial>
-        <visual>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_4.STL" />
-            </geometry>
-            <material
-                name="">
-                <color
-                    rgba="0.152941176470588 0.152941176470588 0.152941176470588 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <mesh
-                    filename="package://line_follow_robot_description/meshes/wheel_4.STL" />
-            </geometry>
-        </collision>
-    </link>
-    <joint
-        name="wheel4_joint"
-        type="continuous">
-        <origin
-            xyz="-0.082473 0.13333 -0.028957"
-            rpy="-1.5708 0 0" />
-        <parent
-            link="chassis" />
-        <child
-            link="wheel_4" />
-        <axis
-            xyz="0 0 1" />
-    </joint>
+
+    <xacro:robot_wheel wheel_prefix="left_front" />
+    <xacro:robot_wheel wheel_prefix="left_rear" />
+    <xacro:robot_wheel wheel_prefix="right_front" />
+    <xacro:robot_wheel wheel_prefix="right_rear" />
+
     <link
         name="lidar">
         <inertial>
@@ -276,13 +68,13 @@ Stephen Brawner (brawner@gmail.com)
                 xyz="-0.0195048948992104 0.0362156974703284 0.0350383093115848"
                 rpy="0 0 0" />
             <mass
-                value="0.142994095653187" />
+                value="0.143" />
             <inertia
                 ixx="7.34746440088868E-05"
-                ixy="8.53572518984264E-07"
-                ixz="-2.04304178805643E-07"
+                ixy="0"
+                ixz="0"
                 iyy="4.62767161181516E-05"
-                iyz="-3.62184026396557E-06"
+                iyz="0"
                 izz="0.000107960183716792" />
         </inertial>
         <visual>
@@ -296,7 +88,7 @@ Stephen Brawner (brawner@gmail.com)
             <material
                 name="">
                 <color
-                    rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+                    rgba="0.1 0.1 0.1 1" />
             </material>
         </visual>
         <collision>
@@ -329,13 +121,13 @@ Stephen Brawner (brawner@gmail.com)
                 xyz="-0.00269952282557905 -0.0201858207235722 6.93889390390723E-18"
                 rpy="0 0 0" />
             <mass
-                value="0.00398342776565197" />
+                value="0.004" />
             <inertia
                 ixx="8.41847786919127E-07"
                 ixy="-9.98650670123063E-08"
-                ixz="6.04006664490731E-23"
+                ixz="0"
                 iyy="4.65403328847223E-07"
-                iyz="1.40054768573023E-22"
+                iyz="0"
                 izz="4.97218440111319E-07" />
         </inertial>
         <visual>
@@ -349,7 +141,7 @@ Stephen Brawner (brawner@gmail.com)
             <material
                 name="">
                 <color
-                    rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                    rgba="0.79 0.825 0.94 1" />
             </material>
         </visual>
         <collision>

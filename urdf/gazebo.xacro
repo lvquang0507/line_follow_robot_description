@@ -1,49 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="line_follow_robot_description">
 
-    <xacro:property name="wheel_color" value="Gazebo/FlatBlack" />
-    <xacro:property name="wheel_mu1" value="200" />
-    <xacro:property name="wheel_mu2" value="100" />
-    <xacro:property name="camera_friction" value="2000">
-    </xacro:property>
-
+    <xacro:property name="camera_friction" value="2000" />
 
     <gazebo reference="chassis">
         <material>
-            Gazebo/Grey
+            Gazebo/White
         </material>
-    </gazebo>
-
-    <gazebo reference="wheel_1">
-        <material>
-            ${wheel_color}
-        </material>
-        <mu1 value="${wheel_mu1}" />
-        <mu2 value="${wheel_mu2}" />
-    </gazebo>
-
-    <gazebo reference="wheel_2">
-        <material>
-            ${wheel_color}
-        </material>
-        <mu1 value="${wheel_mu1}" />
-        <mu2 value="${wheel_mu2}" />
-    </gazebo>
-
-    <gazebo reference="wheel_3">
-        <material>
-            ${wheel_color}
-        </material>
-        <mu1 value="${wheel_mu1}" />
-        <mu2 value="${wheel_mu2}" />
-    </gazebo>
-
-    <gazebo reference="wheel_4">
-        <material>
-            ${wheel_color}
-        </material>
-        <mu1 value="${wheel_mu1}" />
-        <mu2 value="${wheel_mu2}" />
     </gazebo>
 
     <gazebo reference="lidar">
