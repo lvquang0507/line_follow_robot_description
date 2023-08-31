@@ -1,6 +1,6 @@
 controller_manager:
     ros__parameters:
-        update_rate: 100
+        update_rate: 100 # DO NOT CHANGE THIS TO DOUBLE TYPE
         use_sim_time: true
 
         joint_state_broadcaster:
@@ -11,18 +11,19 @@ controller_manager:
 
 diff_drive_base_controller:
     ros__parameters:
-        right_wheel_names: ["wheel1_joint", "wheel2_joint"]
-        left_wheel_names: ["wheel3_joint", "wheel4_joint"]
+        publish_rate: 60.0
 
-        wheel_seperation: 0.21
-        wheels_per_side: 2
+        right_wheel_names: ["right_front_wheel_joint", "right_rear_wheel_joint"]
+        left_wheel_names: ["left_front_wheel_joint", "left_rear_wheel_joint"]
+
+        wheel_seperation: 0.24
+        wheels_per_side: 1
         wheel_radius: 0.05
 
         wheel_separation_multiplier: 1.05
         left_wheel_radius_multiplier: 1.05
         right_wheel_radius_multiplier: 1.05
 
-        publish_rate: 60
         odom_frame_id: odom
         base_frame_id: base_link
 
