@@ -74,17 +74,30 @@ def generate_launch_description():
         output="screen",
     )
 
-    joint_state_broadcaster_spawn = ExecuteProcess(
-        cmd=[
+    jsb_cmd = []
+    if use_sim_time == "true":
+        jsb_cmd = [
             "ros2",
             "control",
             "load_controller",
             "--set-state",
             "active",
             "joint_state_broadcaster",
-        ],
+            "--use_sim_time",
+        ]
+    else:
+        jsb_cmd = [
+            "ros2",
+            "control",
+            "load_controller",
+            "--set-state",
+            "active",
+            "joint_state_broadcaster",
+        ]
+
+    joint_state_broadcaster_spawn = ExecuteProcess(
+        cmd=jsb_cmd,
         output="screen",
-        params={"use_sim_time": use_sim_time},
     )
 
     delay_JSB_after_gazebo = RegisterEventHandler(
@@ -128,7 +141,7 @@ def generate_launch_description():
         [
             DeclareLaunchArgument(
                 "use_sim_time",
-                default_value="false",
+                default_value="true",
                 description="use simulation time if set to true",
             ),
             robot_state_publisher_node,
